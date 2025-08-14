@@ -8,7 +8,7 @@
 double nibun( double, double );
 double func_y( double );
 
-    int main( int argc, char **argv ){
+int main( int argc, char **argv ){
     double a = 0.0, b = 1.0;                        // 初期値設定
     double x;                                       // 解
 
