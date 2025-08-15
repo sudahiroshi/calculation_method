@@ -22,7 +22,7 @@ int main( int argc, char **argv ) {
                                             // 数値積分
     for( int i=1; i<N; i++ )
         z += 2.0 * y[i];
-    s = ( h / 2.0 ) * ( y[0] + z + y[N] );  // 式(4.6)
+        s = ( h / 2.0 ) * ( y[0] + z + y[N] );  // 式(4.6)
 
                                             // 解打出し
     printf( "ANS = %8.4lf\n", s );
