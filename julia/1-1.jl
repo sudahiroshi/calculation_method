@@ -1,6 +1,6 @@
 using Printf
 
-const EPS = 0.0001
+const ε = 0.0001
 
 function nibun( a, b )
     c = 0
@@ -11,7 +11,7 @@ function nibun( a, b )
         else
             a = c
         end
-        if !( abs( a - b) > EPS )
+        if !( abs( a - b) > ε )
             break
         end
     end

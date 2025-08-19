@@ -29,7 +29,7 @@ int main( int argc, char ** argv ) {
             if( k != i ) {
                 delta = a[k][i];
                 for( int j=i; j<N+1; j++ )
-                a[k][j] -= delta * a[i][j];
+                    a[k][j] -= delta * a[i][j];
             }
         }
     }

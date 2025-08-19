@@ -1,6 +1,6 @@
 using Printf
 
-const EPS = 0.0001
+const ε = 0.0001
 
 function bairstow( a, n )
     b = zeros(n+1)
@@ -26,7 +26,7 @@ function bairstow( a, n )
 
         p += dp
         q += dq
-        if !(( abs(dp) > EPS ) || ( abs(dq) > EPS ))
+        if !(( abs(dp) > ε ) || ( abs(dq) > ε ))
             break
         end
     end

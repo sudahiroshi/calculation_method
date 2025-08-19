@@ -1,6 +1,6 @@
 using Printf
 
-const EPS = 0.0001
+const ε = 0.0001
 
 function func_y( x )
     return x^3.0 + x - 1.0
@@ -15,7 +15,7 @@ b = 0
 
 while true
     global b = a - func_y(a) / func_z(a)
-    if abs( a- b ) < EPS
+    if abs( a- b ) < ε
         break
     else
         global a = b
