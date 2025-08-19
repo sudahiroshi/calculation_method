@@ -28,18 +28,12 @@ int main( int argc, char **argv ) {
     while(1) {
                                     // 最大要素の行と列を検索
         max = 0.0;
-        printf("aaa\n");
-        for( int y=0; y<N; y++ )
-            for( int x=0; x<N; x++ )
-                printf( "%d, %d, %f\n", x, y, a[y][x] );
-        printf("\n");
         for( int i=0;i<N-1; i++ )
             for( int j=i+1; j<N; j++ )
                 if( fabs( a[i][j] ) > max ) {
                     p = i;
                     q = j;
                     max = fabs( a[i][j] );
-                    printf("%d, %d, %f\n", i, j, max );
                 }
                                     // 収束したら解打出し
         if( max < EPS ) break;
@@ -54,8 +48,6 @@ int main( int argc, char **argv ) {
         s = sqrt( 0.5 * ( 1.0 - gamma ) );
         if( alpha * beta < 0 ) s = -s;
         c = sqrt( 1.0 - s * s );
-        printf("== %d, %d, %f, %f, %f, %d, %d\n", p, q, wa, wb, wc, p, q);
-        printf("-- %f, %f, %f, %f\n", alpha, beta, gamma, s );
 
                                     // 直交変換
         for( int j=0; j<N; j++ ) {
@@ -63,28 +55,18 @@ int main( int argc, char **argv ) {
             a[q][j] = a[p][j] * s + a[q][j] * c;
             a[p][j] = w;
         }
-        printf("bbb\n");
-        for( int y=0; y<N; y++ )
-            for( int x=0; x<N; x++ )
-                printf( "%d, %d, %f\n", x, y, a[y][x] );
+
         for( int j=0; j<N; j++ ) {
             a[j][p] = a[p][j];
             a[j][q] = a[q][j];
         }
-        printf("ccc\n");
-        for( int y=0; y<N; y++ )
-            for( int x=0; x<N; x++ )
-                printf( "%d, %d, %f\n", x, y, a[y][x] );
+
         w = 2.0 * wb * s * c;
         a[p][p] = wa * c * c + wc * s * s - w;
         a[q][q] = wa * s * s + wc * c * c + w;
         a[p][q] = 0;
         a[q][p] = 0;
-        printf("++ %lf, %lf, %lf, %lf, %lf, %lf, %d, %d\n", w, wa, wb, wc, s, c, p, q);
-        printf("ddd\n");
-        for( int y=0; y<N; y++ )
-            for( int x=0; x<N; x++ )
-                printf( "%d, %d, %f\n", x, y, a[y][x] );
+
                                     // 漸化式計算
         for( int i=0; i<N; i++ ) {
             w = u[i][p] * c - u[i][q] * s;

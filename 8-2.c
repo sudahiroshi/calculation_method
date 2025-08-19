@@ -51,7 +51,6 @@ void bit( int p ) {
         d = j;
         c = p / 2;
         for( int k=0; k<L; k++ ) {
-            printf("j:%d d:%d c:%d\n", j, d, c);
             r[ j ] += ( d % 2 ) * c;
             d /= 2;
             c /= 2;
@@ -59,11 +58,8 @@ void bit( int p ) {
     }
 
                                 // データ入れ換え
-    for( int j=0; j<p; j++ ){
-        printf( "r[%d]: %9.3f : ", j, r[j] );
+    for( int j=0; j<p; j++ )
         r[ j ] = i[ (int)r[ j ] ];
-        printf( "%9.3f\n", r[j] );
-    }
 
                                 // 配列 i クリア
     for( int k=0; k<1024; k++ )
