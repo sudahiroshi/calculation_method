@@ -22,13 +22,14 @@ int main( int argc, char **argv ) {
                                                         // 式(3.23)左辺
     for( int i=0; i<=M; i++ )
         for( int j=0; j<=M; j++ )
-            for( int k=0; k<N; k++ ){
+            for( int k=0; k<N; k++ )
                 a[j][i] += pow( x[k], (double)(i+j) );
-            }
 
+                                                        // 式(3.23)右辺
     for( int j=0; j<=M; j++ )
         for( int k=0; k<N; k++ )
             a[j][M+1] += y[k] * pow( x[k], (double)j );
+
     if( jordan() == 1 ) return 1;
 
                                                         // 係数打出し
