@@ -2,13 +2,8 @@ using Printf
 
 const ε = 0.0001
 
-function func_y( x )
-    return x^3.0 + x - 1.0
-end
-
-function func_z( x )
-    return 3.0 * x^2.0 + 1.0
-end
+func_y( x ) = x^3.0 + x - 1.0
+func_z( x ) = 3.0x^2.0 + 1.0
 
 a = 1.0
 b = 0

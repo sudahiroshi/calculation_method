@@ -20,8 +20,8 @@ ddx = 0.0
 while true
     if x >= ddx - ε
         global ddx += dx
-        global ry = 2.0 * exp( x ) + exp( 2.0 * x )
-        global rz = 2.0 * exp( x ) + 2.0 * exp( 2.0 * x )
+        global ry = 2.0exp( x ) + exp( 2.0x )
+        global rz = 2.0exp( x ) + 2.0exp( 2.0x )
         @printf( "%10.4lf %10.4lf %10.4lf %10.4lf %10.4lf\n",
                     x, y, ry, z, rz );
     end
@@ -35,8 +35,8 @@ while true
     b4 = func_f( x + h      , y + h * b3      , z + h * c3       )
     c4 = func_g( x + h      , y + h * b3      , z + h * c3       )
 
-    global y += ( h / 6.0 ) * ( b1 + 2.0 * b2 + 2.0 * b3 + b4 );
-    global z += ( h / 6.0 ) * ( c1 + 2.0 * c2 + 2.0 * c3 + c4 );
+    global y += ( h / 6.0 ) * ( b1 + 2.0b2 + 2.0b3 + b4 );
+    global z += ( h / 6.0 ) * ( c1 + 2.0c2 + 2.0c3 + c4 );
     global x += h;
     if !( x <= xmax  )
         break

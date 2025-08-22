@@ -2,7 +2,7 @@ using Printf
 
 const ε = 0.00000001
 
-func_f(x) = 2.0 * x
+func_f(x) = 2.0x
 
 x = 0.0
 y = 0.0

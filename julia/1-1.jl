@@ -18,9 +18,7 @@ function nibun( a, b )
     return c
 end
 
-function func_y( x )
-    return x^3.0 + x - 1.0
-end
+func_y( x ) = x^3.0 + x - 1.0
 
 a = 0.0
 b = 1.0

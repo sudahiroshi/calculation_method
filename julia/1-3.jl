@@ -60,8 +60,6 @@ while n > 0
     elseif n==2
         root( a[2], a[3] )
         break
-    # elseif n==0
-    #     break
     end
 
     ( p, q ) = bairstow( a, n )

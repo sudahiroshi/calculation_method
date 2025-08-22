@@ -2,9 +2,7 @@ using Printf
 
 const N = 30
 
-function func_y( x )
-    return x^4.0 + 2.0x
-end
+func_y( x ) = x^4.0 + 2.0x
 
 y = zeros( N + 1 )
 xa = 0.0
@@ -18,9 +16,8 @@ for i=0:N
 end
 
 for i=2:N
-    global z += 2.0 * y[i]
+    global z += 2.0y[i]
 end
 s = ( h / 2.0 ) * ( y[1] + z + y[N+1] )
 
 @printf( "ANS = %8.4f\n", s )
-

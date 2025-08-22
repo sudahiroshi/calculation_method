@@ -2,7 +2,7 @@ using Printf
 
 const ε = 0.00000001
 
-func_f( x, y ) = 2.0 * x
+func_f( x, y ) = 2.0x
 
 x = 0.0
 y = 0.0
@@ -23,7 +23,7 @@ while true
     k3 = func_f( x + h / 2.0, y + h * k2 / 2.0 )
     k4 = func_f( x + h      , y + h * k3       )
 
-    global y += ( h / 6.0 ) * ( k1 + 2.0 * k2 + 2.0 * k3 + k4 )
+    global y += ( h / 6.0 ) * ( k1 + 2.0k2 + 2.0k3 + k4 )
     global x += h
     if !(x <= xmax + ε )
         break
