@@ -34,7 +34,7 @@ y = [ 0.0, 1.1, 2.5, 4.0, 4.1, 5.0 ]
 for i=0:M, j=0:M, k=1:N
     a[j+1,i+1] += x[k]^(i+j)
 end
-print(a)
+
 for j=1:M+1, k=1:N
     a[j,M+2] += y[k] * x[k]^(j-1)
 end
