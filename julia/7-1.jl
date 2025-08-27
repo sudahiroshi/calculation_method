@@ -7,14 +7,7 @@ a = hcat([
     2.0 1.0 3.0
     1.0 3.0 2.0
     3.0 2.0 1.0
-], zeros(N,2N) )
-
-for y=1:N
-    for x=1:N
-        a[y, x] = a[y,x]
-    end
-    a[y, y+N] = 1.0
-end
+], one( zeros(N,2N) ) )
 
 for i=1:N
     pivot = a[i,i]
