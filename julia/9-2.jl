@@ -25,11 +25,5 @@ for n=1:N
         end
         println()
     end
-    # @printf( "%6d", n )
-    # for j=1:DIM
-    #     @printf( "%9.4f", float(r[j]) )
-    #     @printf( "%9.4f", float(m[j])/float(n) )
-    # end
-    # println()
 end
 
