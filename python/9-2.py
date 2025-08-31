@@ -1,13 +1,15 @@
+# 球体の体積計算
+
 import random
 
-N = 10000
-DIM = 5
+N = 10000       # 繰り返し回数
+DIM = 5         # 次元数
 
 x = [0] * DIM
 r = [0] * DIM
 m = [0] * DIM
 
-print( " 回数円面積球体積4次元5次元" )
+print( " 回数円面積球体積4次元5次元" )      # 見出し打出し
 for n in range( 1, N+1 ):
     for j in range( DIM ):
         x[j] = random.random()
@@ -20,6 +22,7 @@ for n in range( 1, N+1 ):
         if( r[j] <= 0.25 ):
             m[j] += 1
     if( ( n % 1000 ) == 0 ):
+        # 解打出し
         print( f"{n:6d}", end="" )
         for j in range( 1, DIM ):
             print( f"{float(m[j])/float(n):9.4f}", end="" )

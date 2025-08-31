@@ -1,17 +1,23 @@
+# ベアストウ法
+
 using Printf
 
-const ε = 0.0001
+const ε = 0.0001        # 許容誤差
 
+# 2次式の積に変換する
 function bairstow( a, n )
     b = zeros(n+1)
     c = zeros(n+1)
 
+    # 2次因数初期値
     p = 1.0
     q = 1.0
 
     while true
         b[1] = a[1]
         b[2] = a[2] - p * b[1]
+
+        # 症の係数行列
         for k = 3:n+1
             b[k] = a[k] - p * b[k-1] - q * b[k-2]
         end
@@ -20,12 +26,14 @@ function bairstow( a, n )
         for k = 3:n+1
             c[k] = b[k] - p * c[k-1] - q * c[k-2]
         end
-        e = c[n-1]^2.0 - c[n-2] * ( c[n] - b[n] )
-        dp = ( b[n] * c[n-1] - b[n+1] * c[n-2] ) / e
-        dq = ( b[n+1] * c[n-1] - b[n] * ( c[n] - b[n] ) ) / e
+        e = c[n-1]^2.0 - c[n-2] * ( c[n] - b[n] )               # 式(1.31)
+        dp = ( b[n] * c[n-1] - b[n+1] * c[n-2] ) / e            # 式(1.29)
+        dq = ( b[n+1] * c[n-1] - b[n] * ( c[n] - b[n] ) ) / e   # 式(1.30)
 
+        # 収束係数
         p += dp
         q += dq
+        # 余剰ゼロ判定式(1.28)
         if !(( abs(dp) > ε ) || ( abs(dq) > ε ))
             break
         end
@@ -37,31 +45,34 @@ function bairstow( a, n )
     return(p,q)
 end
 
+# 2次式の球根
 function root( p, q )
-    d = p^2.0 - 4.0q
-    if d <= 0
+    d = p^2.0 - 4.0q    # 判別式
+    if d <= 0           # 実根の計算
         f = sqrt( -d )
         println( -p / 2.0 + (f / 2.0)im )
         println( -p / 2.0 - (f / 2.0)im )
-    else
+    else                # 虚根の計算
         f = sqrt( d )
         println( ( -p + f ) / 2.0 )
         println( ( -p - f ) / 2.0 )
     end
 end
 
-n = 4
-a = [ 1.0, -2.0, 2.0, -50.0, 62.0 ]
+n = 4                                   # 式次数宣言
+a = [ 1.0, -2.0, 2.0, -50.0, 62.0 ]     # 係数
 
+println( "解" )         # 見出し打ち出し
 while n > 0
-    if n==1
+    if n==1             # 1次式求根
         println( -a[2]/a[1] + 0im )
         break
-    elseif n==2
+    elseif n==2         # 2次式求根
         root( a[2], a[3] )
         break
     end
 
+    # 2次因数分解
     ( p, q ) = bairstow( a, n )
     root( p, q )
     global n -= 2

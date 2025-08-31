@@ -1,13 +1,18 @@
+# 楕円形偏微分方程式
+
 using Printf
 
+# 配列宣言
 u = zeros(12,12)
 w = zeros(12,12)
-nh = 10
+nh = 10     # 刻み
 
+# 初期・境界条件
 for i=1:nh-1
     u[i+1, nh+1] = 1.0
 end
 
+# 差分計算（ガウス-ザイデル法）
 while true
     dd = 0.0
     for i=1:nh-1, j=1:nh-1
@@ -22,6 +27,7 @@ while true
     end
 end
 
+# 解打出し
 for i=0:nh
     for j=0:nh
         @printf( "%6.3f", u[i+1,j+1] )
