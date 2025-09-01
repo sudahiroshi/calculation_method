@@ -1,14 +1,18 @@
+# 正規乱数検証計算
+
 import math
 import random
 
-N = 10000
+N = 10000       # 繰り返し回数
 
+# 結果打出し
 def print_result( sa, sb, i ):
     ave = sa / i
     hh = sb - i * ave * ave
     sig = math.sqrt( hh/ i )
     print( f"{i:6d} {ave:8.4f} {sig:8.4f}" )
 
+# 正規乱数生成
 def gauss():
     ss = 0.0
 
@@ -18,7 +22,7 @@ def gauss():
 
 sa = 0.0
 sb = 0.0
-print( "回数\t平均値\t標準偏差" )
+print( "回数\t平均値\t標準偏差" )       # 見出し打出し
 for i in range( 1, N+1 ):
     v = gauss()
     sa += v

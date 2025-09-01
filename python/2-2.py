@@ -1,4 +1,4 @@
-# ガウスーザイデル法
+# ガウス-ザイデル法
 
 import sys
 
@@ -31,8 +31,6 @@ for k in range(MAX_LOOP):
         x[i] = y[i]             # 誤差集積
     if( q < EPS ):              # 誤差判定
         for i in range(N):
-            print( f"x{i} = {x[i]:9.6f}" )
+            print( f"x{i} = {x[i]:9.6f}" )  # 解打出し
         sys.exit()
 print( "収束せず" )
-
-
