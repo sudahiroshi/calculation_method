@@ -42,7 +42,7 @@ while true
     b4 = func_f( x + h      , y + h * b3      , z + h * c3       )
     c4 = func_g( x + h      , y + h * b3      , z + h * c3       )
 
-    式(5.27)
+    # 式(5.27)
     global y += ( h / 6.0 ) * ( b1 + 2.0b2 + 2.0b3 + b4 );
     global z += ( h / 6.0 ) * ( c1 + 2.0c2 + 2.0c3 + c4 );
     global x += h;

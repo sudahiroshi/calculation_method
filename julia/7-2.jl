@@ -1,6 +1,7 @@
 # ヤコビ法による固有値と固有ベクトル計算
 
 using Printf
+using LinearAlgebra
 
 const N = 3         # 次数設定
 const ε = 0.0001    # 収束範囲
@@ -10,7 +11,7 @@ a = [
     -1.4142  1.5000 -0.4082
      0.0000 -0.4082  0.3333
 ]   # 係数行列
-u = zeros(N,N) |> one       # 単位行列
+u = Matrix{Float64}( I, N, N )       # 単位行列
 p = 0.0
 q = 0.0
 
@@ -73,6 +74,7 @@ println( "固有値" )
 for i=1:N
     @printf( "%7.4f ", a[i,i] )
 end
+println()
 println()
 println( "固有ベクトル" )
 for i=1:N

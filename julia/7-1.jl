@@ -1,6 +1,7 @@
 # 逆行列の計算
 
 using Printf
+using LinearAlgebra
 
 const N = 3         # 次数設定
 const ε = 0.0001    # 許容誤差
@@ -11,7 +12,7 @@ a = hcat([
     2.0 1.0 3.0
     1.0 3.0 2.0
     3.0 2.0 1.0
-], ( zeros(N,2N) |> one ) )
+], Matrix{Float64}( I, N, N ) )
 
 # 掃き出し計算部
 for i=1:N
