@@ -1,5 +1,9 @@
 # 最小2乗法
 
+# 環境構築のため，以下2行は1回だけ実行すれば良い
+# using Pkg
+# Pkg.add("Plots")
+using Plots
 using Printf
 
 const N = 6             # データ数
@@ -50,3 +54,17 @@ jordan( a )
 for i=1:M+1
     @printf( "A%2d = %7.3f\n", i-1, a[i,M+2] )
 end
+
+function f(x)
+    answer = 0
+    for i=1:M+1
+        answer += a[i,M+2] * x^(i-1)
+    end
+    return answer
+end
+
+xx = range( 0.0, 5.0, length=100 )
+graph = plot( xx, f.(xx) )
+graph = plot!( x, y, seriestype=:scatter )
+plot( graph ) |> display
+readline()
